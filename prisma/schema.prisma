@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Activity {
+  id          Int      @id @default(autoincrement())
+  title       String?
+  description String?
+  link        String?
+  startTime   String?
+  endTime     String?
+  latitude    Float?
+  longitude   Float?
+  day         Day      @relation(fields: [dayId], references: [id])
+  dayId       Int
+}
+
+model Day {
+  id         Int        @id @default(autoincrement())
+  day        Int?
+  activities Activity[]
+  itinerary  Itinerary  @relation(fields: [itineraryId], references: [id])
+  itineraryId Int
+}
+
+model Itinerary {
+  id        Int    @id @default(autoincrement())
+  city      String?
+  country   String?
+  latitude  Float?
+  longitude Float?
+  image     String?
+  days      Day[]
+}
