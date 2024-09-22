@@ -6,7 +6,7 @@
     </header>
     <div class="trips">
       <h1 class="text-center font-bold mb-10">Your Trips</h1>
-      <div class="cities flex gap-8 flex-wrap justify-center md:justify-start">
+      <div class="cities flex gap-8 flex-wrap justify-center md:justify-start" v-if="data">
         <NuxtLink
           v-for="city in data.itineraries"
           :key="city.id"
