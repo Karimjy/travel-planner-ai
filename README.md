@@ -1,23 +1,12 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Installation web nuxt3
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
 # pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -25,51 +14,30 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
 # pnpm
 pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+# Installation LLM
 
-Build the application for production:
+The folder /LLM_AI_trip/ contains the LLM (Cohere for this prototype)
+
+## Create a new python environment
 
 ```bash
-# npm
-npm run build
+conda create -n name_env
 
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+conda activate name_env
 ```
 
-Locally preview production build:
+## Install the dependencies
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+pip install -r /LLM_AI_trip/requirements.txt
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Run it
+
+```bash
+fastapi dev /LLM_AI_trip/src/main.py
+```
